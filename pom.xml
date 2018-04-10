@@ -48,6 +48,12 @@
 		</exclusions>
 		</dependency>
 
+		<!-- beetl -->
+		<dependency>
+			<groupId>com.ibeetl</groupId>
+			<artifactId>beetl-framework-starter</artifactId>
+			<version>1.1.45.RELEASE</version>
+		</dependency>
 
 
 		<!-- 工具 -->
@@ -90,7 +96,6 @@
 			<artifactId>mybatis-generator-core</artifactId>
 			<version>${MBG.version}</version>
 		</dependency>
-
 
 
 		<!--mybatis 结束-->
@@ -169,6 +174,10 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<!--fork : 如果没有该项配置，devtools不会起作用，即应用不会restart -->
+					<fork>true</fork>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
