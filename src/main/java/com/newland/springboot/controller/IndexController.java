@@ -5,6 +5,7 @@ import com.newland.springboot.domain.User;
 import com.newland.springboot.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -14,7 +15,8 @@ public class IndexController {
     private IUserService userService;
 
     @RequestMapping(value = "/", method = {RequestMethod.HEAD, RequestMethod.GET})
-    public String home() {
+    public String home(ModelMap modelMap) {
+
         return "index";
     }
 
