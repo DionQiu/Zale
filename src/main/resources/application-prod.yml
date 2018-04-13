@@ -1,0 +1,45 @@
+spring:
+  datasource:
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    minIdle: 5
+    useGlobalDataSourceStat: true
+    validationQuery: SELECT 1 FROM DUAL
+    initialSize: 5
+    maxWait: 60000
+    poolPreparedStatements: true
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=Asia/ShangHai&characterEncoding=utf-8&useSSL=false
+    maxPoolPreparedStatementPerConnectionSize: 20
+    password: admin
+    testOnBorrow: false
+    testWhileIdle: true
+    minEvictableIdleTimeMillis: 300000
+    timeBetweenEvictionRunsMillis: 60000
+    testOnReturn: false
+    driverClassName: com.mysql.jdbc.Driver
+    maxActive: 20
+    username: root
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+
+pagehelper:
+  reasonable: "true"
+  support-methods-arguments: "true"
+  params: count=countSql
+  helper-dialect: mysql
+
+mybatis:
+  mapper-locations: classpath:mybatis/mappers/*Mapper.xml
+  type-aliases-package: com.newland.springboot.domain
+
+mapper:
+  identity: MYSQL
+  not-empty: false
+  mappers: com.newland.springboot.mapper
+
+
+debug: false
+server:
+  port: 80

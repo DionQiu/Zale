@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>个人日记</title>
+<meta name="keywords" content="个人博客模板古典系列之――江南墨卷" />
+<meta name="description" content="个人博客模板古典系列之――江南墨卷" />
+<link href="/css/base.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="/js/modernizr.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" src="/js/axios.js"></script>
+  <script type="text/javascript" src="/js/vue.js"></script>
+  <script type="text/javascript">
+      $(function () {
+          Vue.component('my-header', {
+              template: `<header>
+          <div class="headtop"></div>
+          <div class="contenttop">
+          <div class="logo f_l" v-text="title">江南墨卷</div>
+          {{ keyword }}
+          <div class="search f_r">
+          <form  method="get" action="/blog/search"  id="searchform" @submit.prevent="doSearch()" >
+          <input name="keyword"  type="text" v-model.trim="keyword" id="keyboard"  placeholder="请输入关键字" class="input_text" style="color: rgb(153, 153, 153);" >
+          <input   class="input_submit" value="搜索" type="submit">
+          </form>
+          </div>
+          <div class="blank"></div>
+          <nav>
+          <div  class="navigation">
+          <ul class="menu" >
+          <li><a href="index.html">网站首页</a></li>
+          <li @mouseover="showDetail=true" @mouseout="showDetail=false">
+          <a href="#" >关于我</a>
+          <ul v-show="showDetail"  >
+          <li><a href="about.html">个人简介</a></li>
+          <li><a href="listpic.html">个人相册</a></li>
+          </ul>
+          </li>
+          <li @mouseover="showBlog=true" @mouseout="showBlog=false">
+          <a href="#">我的日记</a>
+          <ul v-show="showBlog">
+          <li><a href="newslistpic.html">个人日记</a></li>
+          <li><a href="newslistpic.html">学习笔记</a></li>
+          </ul>
+          </li>
+          <li><a href="newslistpic.html">技术文章</a> </li>
+          <li><a href="#">给我留言</a> </li>
+          </ul>
+          </div>
+          </nav>
+          </div>
+          </header>`,
+              data: function () {
+                  return {
+                      title: "江南墨卷",
+                      keyword: "",
+                      showDetail: false,
+                      showBlog: false
+                  }
+              },
+              methods: {
+                  doSearch: function () {
+                      var _this = this;
+                      axios.get('/blog/search', {
+                          params: {
+                              keyword: _this.keyword
+                          }
+                      })
+                          .then(function (response) {
+                              console.log(response);
+                              _this.keyword = response.data;
+                          })
+                          .catch(function (error) {
+                              alert('Error! Could not reach the API. ' + error);
+                          });
+                  },
+              }
+          });
+
+          var vm = new Vue({
+              el: "#wrapper",
+
+          });
+      })
+  </script>
+</head>
+<body>
+<div id="wrapper">
+  <my-header></my-header>
+<div class="container">
+  <div class="con_content">
+    <div class="about_box">
+      <h2 class="nh1"><span>您现在的位置是：<a href="/" target="_blank">网站首页</a>>><a href="#" target="_blank">个人日记</a></span><b>个人日记</b></h2>
+      <div class="dtxw box">
+        <li>
+          <div class="dttext f_l">
+            <ul>
+              <h2><a href="/">个人博客模板古典系列之――江南墨卷</a></h2>
+              <p>个人博客模板古典系列之――江南墨卷个人博客模板古典系列之――江南墨卷个人博客模板古典系列之――江南墨卷原汁原味重现经典....</p>
+              <span>2017-3-10</span>
+            </ul>
+          </div>
+          <div class="xwpic f_r"><a href="/"><img src="images/02.jpg"></a></div>
+        </li>
+        <li>
+          <div class="dttext f_l">
+            <ul>
+              <h2><a href="/">个人博客模板古典系列之――江南墨卷</a></h2>
+              <p>个人博客模板古典系列之――江南墨卷个人博客模板古典系列之――江南墨卷广安领先....</p>
+              <span>2017-3-10</span>
+            </ul>
+          </div>
+          <div class="xwpic f_r"><a href="/"><img src="images/01.jpg"></a></div>
+        </li>
+        <li>
+          <div class="dttext f_l">
+            <ul>
+              <h2><a href="/">个人博客模板古典系列之――江南墨卷</a></h2>
+              <p>个人博客模板古典系列之――江南墨卷个人博客模板古典系列之――江南墨卷个人博客模板古典系列之――江南墨卷原汁原味重现经典....</p>
+              <span>2017-3-10</span>
+            </ul>
+          </div>
+          <div class="xwpic f_r"><a href="/"><img src="images/03.jpg"></a></div>
+        </li>
+        <li>
+          <div class="dttext f_l">
+            <ul>
+              <h2><a href="/">个人博客模板古典系列之――江南墨卷</a></h2>
+              <p>个人博客模板古典系列之――江南墨卷个人博客模板古典系列之――江南墨卷个人博客模板古典系列之――江南墨卷原汁原味重现经典</p>
+              <span>2017-3-10</span>
+            </ul>
+          </div>
+          <div class="xwpic f_r"><a href="/"><img src="images/04.jpg"></a></div>
+        </li>
+        <li>
+          <div class="dttext f_l">
+            <ul>
+              <h2><a href="/">个人博客模板古典系列之――江南墨卷</a></h2>
+              <p>个人博客模板古典系列之――江南墨卷个人博客模板古典系列之――江南墨卷个人博客模板古典系列之――江南墨卷原汁原味重现经典</p>
+              <span>2017-3-10</span>
+            </ul>
+          </div>
+          <div class="xwpic f_r"><a href="/"><img src="images/02.jpg"></a></div>
+        </li>
+        <li>
+          <div class="dttext f_l">
+            <ul>
+              <h2><a href="/">个人博客模板古典系列之――江南墨卷</a></h2>
+              <p>个人博客模板古典系列之――江南墨卷个人博客模板古典系列之――江南墨卷个人博客模板古典系列之――江南墨卷原汁原味重现经典</p>
+              <span>2017-3-10</span>
+            </ul>
+          </div>
+          <div class="xwpic f_r"><a href="/"><img src="images/06.jpg"></a></div>
+        </li>
+      </div>
+      <div class="pagelist">页次：1/1 每页25 总数10<a href="/">首页</a><a href="/">上一页</a><a href="/">下一页</a><a href="/">尾页</a></div>
+    </div>
+  </div>
+  <div class="blank"></div>
+  <!-- container代码 结束 -->
+  
+  <footer>
+    <div class="footer">
+      <div class="f_l">
+        <p>All Rights Reserved 版权所有：<a href="http://www.qstudy.club">邱勇伟个人博客</a> 备案号：蜀ICP备00000000号</p>
+      </div>
+      <div class="f_r textr">
+        <p>Design by DanceSmile</p>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

@@ -147,7 +147,7 @@ nav {
 	z-index: 300;
 }
 .menu li ul {
-	display: none;
+	/*display: none;*/
 	width: 110px;
 	position: absolute;
 	TOP: 40px;
