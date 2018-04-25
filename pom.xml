@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.11.RELEASE</version>
+		<version>1.5.12.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -28,6 +28,7 @@
 		<mybatis-springboot.version>1.3.2</mybatis-springboot.version>
         <MBG.version>1.3.6</MBG.version>
 		<pagehelper.version>1.2.4</pagehelper.version>
+		<tk-mybatis.version>2.0.2</tk-mybatis.version>
 	</properties>
 
 
@@ -80,7 +81,7 @@
 		<dependency>
 			<groupId>tk.mybatis</groupId>
 			<artifactId>mapper-spring-boot-starter</artifactId>
-			<version>1.2.4</version>
+			<version>${tk-mybatis.version}</version>
 		</dependency>
 
 
@@ -153,17 +154,31 @@
 
 	<build>
 		<plugins>
-			<!-- MBG的maven插件-->
+			<!-- tk 通用MBG的maven插件-->
 			<plugin>
 				<groupId>org.mybatis.generator</groupId>
 				<artifactId>mybatis-generator-maven-plugin</artifactId>
 				<version>1.3.6</version>
 				<configuration>
+					<configurationFile>
+						${basedir}/src/main/resources/generator/generatorConfigTK.xml
+					</configurationFile>
 					<verbose>true</verbose>
 					<overwrite>true</overwrite>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.1.46</version>
+					</dependency>
+					<dependency>
+						<groupId>tk.mybatis</groupId>
+						<artifactId>mapper</artifactId>
+						<version>4.0.2</version>
+					</dependency>
+				</dependencies>
 			</plugin>
-
 
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
