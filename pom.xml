@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.12.RELEASE</version>
+		<version>1.5.13.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -31,8 +31,6 @@
 		<tk-mybatis.version>2.0.2</tk-mybatis.version>
 	</properties>
 
-
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -48,21 +46,14 @@
 			</exclusion>
 		</exclusions>
 		</dependency>
-
-
-
 		<!-- 工具 -->
-
 		<!--增强语言包 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>${commons-lang.version}</version>
 		</dependency>
-
 		<!-- 工具 -->
-
-
 		<!--mybatis 开始-->
 
 		<dependency>
@@ -84,14 +75,12 @@
 			<version>${tk-mybatis.version}</version>
 		</dependency>
 
-
 		<!-- MBG代码生成插件-->
 		<dependency>
 			<groupId>org.mybatis.generator</groupId>
 			<artifactId>mybatis-generator-core</artifactId>
 			<version>${MBG.version}</version>
 		</dependency>
-
 
 		<!--mybatis 结束-->
 
@@ -104,9 +93,6 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>${hibernate-validator.version}</version>
 		</dependency>
-
-
-
 
 		<!-- 引入log4j2依赖 -->
 		<dependency>
